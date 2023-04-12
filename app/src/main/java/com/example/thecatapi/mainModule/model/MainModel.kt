@@ -23,10 +23,10 @@ class MainModel {
         urlBuilder.appendQueryParameter(Constans.API_PATH_KEY, Constans.API_KEY)
         val url = urlBuilder.build().toString()
         val request = object : StringRequest(Method.GET, url, Response.Listener{ response ->
-            val listUsers: MutableList<Cats>
+            val listCats: MutableList<Cats>
             val data = object : TypeToken<MutableList<Cats>>() {}.type
-            listUsers = Gson().fromJson(response, data)
-            callback(listUsers)
+            listCats = Gson().fromJson(response, data)
+            callback(listCats)
         },
             Response.ErrorListener {
                 it.printStackTrace()
