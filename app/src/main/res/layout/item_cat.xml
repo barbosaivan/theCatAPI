@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/common_pading_min">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvRaceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Nombre de la Raza"
+            android:background="@color/white"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:padding="@dimen/common_pading_min"
+            android:layout_margin="@dimen/common_pading_min"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/imgcat"/>
+
+        <ImageView
+            android:id="@+id/imgcat"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:contentDescription="@string/description_img_cat"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRaceName" />
+
+
+        <TextView
+            android:id="@+id/tvCountryOrigin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/common_pading_min"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:layout_marginStart="@dimen/common_pading_min"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgcat"
+            tools:text="Pais de origen" />
+
+        <TextView
+            android:id="@+id/tvIntelligence"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Inteligencia"
+            android:background="@color/white"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:padding="@dimen/common_pading_min"
+            android:layout_marginEnd="@dimen/common_pading_min"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgcat"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TheCatAPI</string>
+    <string name="tv_title">CatBreeds</string>
+    <string name="description_img_cat">image cat</string>
+</resources>

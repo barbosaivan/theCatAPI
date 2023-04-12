@@ -1,0 +1,21 @@
+
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+p
+@app/src/main/java/com/example/thecatapi/common/utils/constans.kt,d\d\dd7b14928419a832db9b3464d1148cc1d824f110
+w
+Gapp/src/main/java/com/example/thecatapi/mainModule/view/MainActivity.kt,3\b\3b59326714e52b5fbb6582970ee88811e7cdf095
+~
+Napp/src/main/java/com/example/thecatapi/mainModule/view/adapters/CatAdapter.kt,c\9\c9a7654f8669cd00ce531b2ba42d345569164593
+o
+?app/src/main/java/com/example/thecatapi/common/entities/Cats.kt,c\3\c38b9eda482189c8d9cdce5ad2583ff5d7590487
+n
+>app/src/main/java/com/example/thecatapi/common/data/ApiCats.kt,8\2\82f8bab8de5d466d4b92212d521a95c50522e2d6
+h
+8app/src/main/java/com/example/thecatapi/CatAplication.kt,f\5\f5ee13610bd1c0dea0d5b1f35c87f4c7be55ea8c
+}
+Mapp/src/main/java/com/example/thecatapi/mainModule/viewModel/MainViewModel.kt,c\a\cac2ad4045ee0e619b8202e278d35be6795f7c2d
+u
+Eapp/src/main/java/com/example/thecatapi/mainModule/model/MainModel.kt,a\c\ac2464063056bc263737d58bcaf87eb7c3159ae4
