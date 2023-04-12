@@ -33,9 +33,9 @@ private lateinit var context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cat = cats[position]
         with(holder){
-            binding.tvRaceName.text = cat.name
-            binding.tvCountryOrigin.text = cat.origin
-            binding.tvIntelligence.text = cat.intelligence
+            binding.tvRaceName.text = "Raza: ${cat.name}"
+            binding.tvCountryOrigin.text = "Pais de origen: ${cat.origin}"
+            binding.tvIntelligence.text = "Inteligencia: ${cat.intelligence}"
             Glide.with(context).load("https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
