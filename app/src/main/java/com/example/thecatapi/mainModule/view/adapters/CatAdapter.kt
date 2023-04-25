@@ -18,7 +18,7 @@ import com.example.thecatapi.databinding.ItemCatBinding
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class CatAdapter (private var cats: MutableList<Cats>): RecyclerView.Adapter<CatAdapter.ViewHolder>(){
+class CatAdapter (private var cats: MutableList<Cats>, private var listener: OnClickListener): RecyclerView.Adapter<CatAdapter.ViewHolder>(){
 
 private lateinit var context: Context
 
@@ -33,6 +33,7 @@ private lateinit var context: Context
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cat = cats[position]
         with(holder){
+            setListener(cat)
             binding.tvRaceName.text = "Raza: ${cat.name}"
             binding.tvCountryOrigin.text = "Pais de origen: ${cat.origin}"
             binding.tvIntelligence.text = "Inteligencia: ${cat.intelligence}"
@@ -50,5 +51,10 @@ private lateinit var context: Context
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val binding = ItemCatBinding.bind(view)
+        fun setListener(cat: Cats){
+            with(binding.root){
+                setOnClickListener { listener.onClick(cat) }
+            }
+        }
     }
 }

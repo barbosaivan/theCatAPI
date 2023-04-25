@@ -2,4 +2,6 @@
     <string name="app_name">TheCatAPI</string>
     <string name="tv_title">CatBreeds</string>
     <string name="description_img_cat">image cat</string>
+    <string name="error_accessing_browser">Error accessing the browser</string>
+    <string name="error_exist_url">url does not exist</string>
 </resources>

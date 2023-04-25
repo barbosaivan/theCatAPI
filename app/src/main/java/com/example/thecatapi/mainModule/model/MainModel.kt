@@ -1,6 +1,7 @@
 package com.example.thecatapi.mainModule.model
 
 import android.net.Uri
+import android.util.Log
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.example.thecatapi.CatApplication
@@ -22,6 +23,7 @@ class MainModel {
         val urlBuilder = Uri.parse("${Constans.BASE_URL}${Constans.API_PATH_CATS}").buildUpon()
         urlBuilder.appendQueryParameter(Constans.API_PATH_KEY, Constans.API_KEY)
         val url = urlBuilder.build().toString()
+        Log.i("Url", url)
         val request = object : StringRequest(Method.GET, url, Response.Listener{ response ->
             val listCats: MutableList<Cats>
             val data = object : TypeToken<MutableList<Cats>>() {}.type

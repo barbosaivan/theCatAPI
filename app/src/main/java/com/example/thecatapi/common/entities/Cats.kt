@@ -11,4 +11,6 @@ data class Cats(val id: String,
                 val name: String,
                 val intelligence: String,
                 val origin: String,
-                val reference_image_id: String)
+                val reference_image_id: String,
+                val vetstreet_url: String
+                )
