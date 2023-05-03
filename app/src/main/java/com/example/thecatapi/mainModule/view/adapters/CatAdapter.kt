@@ -34,9 +34,7 @@ private lateinit var context: Context
         val cat = cats[position]
         with(holder){
             setListener(cat)
-            binding.tvRaceName.text = "Raza: ${cat.name}"
-            binding.tvCountryOrigin.text = "Pais de origen: ${cat.origin}"
-            binding.tvIntelligence.text = "Inteligencia: ${cat.intelligence}"
+            binding.tvRaceName.text = cat.name
             Glide.with(context).load("https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()

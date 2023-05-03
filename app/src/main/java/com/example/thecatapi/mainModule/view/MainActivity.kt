@@ -61,6 +61,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     //OnclickListener
     override fun onClick(cat: Cats) {
-        goToWebSite(cat.vetstreet_url)
+        if (cat.vetstreet_url != null){
+            goToWebSite(cat.vetstreet_url)
+        }
     }
 }
