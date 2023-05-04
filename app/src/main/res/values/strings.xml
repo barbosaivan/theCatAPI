@@ -5,4 +5,5 @@
     <string name="error_accessing_browser">Error accessing the browser</string>
     <string name="error_exist_url">url does not exist</string>
     <string name="description_title">Discover the feline world</string>
+    <string name="title_search">Search</string>
 </resources>
