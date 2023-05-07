@@ -6,4 +6,7 @@
     <string name="error_exist_url">url does not exist</string>
     <string name="description_title">Discover the feline world</string>
     <string name="title_search">Search</string>
+    <string name="btn_dogs">Dogs</string>
+    <string name="btn_cats">Cats</string>
+    <string name="error_url_inexistente">URL does not exist</string>
 </resources>
