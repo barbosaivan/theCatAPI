@@ -4,4 +4,6 @@
     <dimen name="common_margin_min_card">4dp</dimen>
     <dimen name="common_pading_default">16dp</dimen>
     <dimen name="common_pading_max">32dp</dimen>
+    <dimen name="common_btc_width">300dp</dimen>
+    <dimen name="common_btc_height">500dp</dimen>
 </resources>

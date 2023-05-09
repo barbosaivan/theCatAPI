@@ -9,7 +9,8 @@
         <shape android:shape="rectangle">
             <solid android:color="@color/dark_teal"/>
             <corners android:topRightRadius="15dp"/>
-            <size android:width="300dp" android:height="500dp"/>
+            <size android:width="@dimen/common_btc_width"
+                android:height="@dimen/common_btc_height"/>
         </shape>
     </item>
 </layer-list>

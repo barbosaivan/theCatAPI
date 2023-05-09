@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thecatapi.R
 import com.example.thecatapi.common.entities.Cats
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var catAdapter: CatAdapter
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var gridLayout: GridLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,32 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         setUpButtons()
     }
 
+    private fun sepUpViewModel() {
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mainViewModel.getCats().observe(this){
+            catAdapter.setCats(it)
+        }
+    }
+
+    private fun setUpRecycler() {
+        catAdapter = CatAdapter(mutableListOf(), this@MainActivity)
+        gridLayout = GridLayoutManager(this, resources.getInteger(R.integer.main_columns))
+        binding.recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = gridLayout
+            adapter = this@MainActivity.catAdapter
+        }
+    }
     private fun setUpButtons() {
+        binding.btnCat.setTextColor(getColor(R.color.white))
+        binding.btnCat.setOnClickListener {_ ->
+            with(binding){
+                btnCat.setTextColor(getColor(R.color.white))
+                setColorFilter(btnCat.compoundDrawables, getColor(R.color.dark_orange))
+                btnDog.setTextColor(getColor(R.color.gray_green))
+                setColorFilter(btnDog.compoundDrawables, null)
+            }
+        }
         binding.btnDog.setOnClickListener {_ ->
             with(binding){
                 btnDog.setTextColor(getColor(R.color.white))
@@ -46,12 +73,21 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 setColorFilter(btnCat.compoundDrawables, null)
             }
         }
-        binding.btnCat.setOnClickListener {_ ->
-            with(binding){
-                btnCat.setTextColor(getColor(R.color.white))
-                setColorFilter(btnCat.compoundDrawables, getColor(R.color.dark_orange))
-                btnDog.setTextColor(getColor(R.color.gray_green))
-                setColorFilter(btnDog.compoundDrawables, null)
+    }
+
+    private fun goToWebSite(url: String) {
+        if (url.isEmpty()) {
+            Toast.makeText(this, getString(R.string.error_exist_url), Toast.LENGTH_LONG).show()
+        } else {
+            val webSite = Intent().apply {
+                action = Intent.ACTION_VIEW
+                data = Uri.parse(url)
+            }
+            try {
+                startActivity(webSite)
+            }catch (e: ActivityNotFoundException){
+                e.printStackTrace()
+                Toast.makeText(this, getString(R.string.error_accessing_browser), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -71,39 +107,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 }
             } catch (e: NullPointerException) {
                 e.printStackTrace()
-            }
-        }
-    }
-
-    private fun sepUpViewModel() {
-        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        mainViewModel.getCats().observe(this){
-            catAdapter.setCats(it)
-        }
-    }
-
-    private fun setUpRecycler() {
-        catAdapter = CatAdapter(mutableListOf(), this@MainActivity)
-        binding.recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = this@MainActivity.catAdapter
-        }
-    }
-
-    private fun goToWebSite(url: String) {
-        if (url.isEmpty()) {
-            Toast.makeText(this, getString(R.string.error_exist_url), Toast.LENGTH_LONG).show()
-        } else {
-            val webSite = Intent().apply {
-                action = Intent.ACTION_VIEW
-                data = Uri.parse(url)
-            }
-            try {
-                startActivity(webSite)
-            }catch (e: ActivityNotFoundException){
-                e.printStackTrace()
-                Toast.makeText(this, getString(R.string.error_accessing_browser), Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -104,8 +104,7 @@ _implementation 'com.github.bumptech.glide:glide:4.15.1'_
  
  ## Autor
  _Ivan Barbosa Ortega_
-_Practica correspondiente a la prueba practica para la vacante desarrollador android en PRAGMA_
  
- _Estudiante de Ingenieria de sistemas_
+ _Ingeniero de Sistemas_
 
 

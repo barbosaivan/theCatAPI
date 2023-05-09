@@ -23,79 +23,90 @@
 
    </com.google.android.material.appbar.MaterialToolbar>
 
-   <TextView
-       android:id="@+id/tvTitle"
-       android:layout_width="wrap_content"
+   <ScrollView
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="@string/tv_title"
-       android:textColor="@color/white"
-       android:textSize="24sp"
-       android:textAppearance="?attr/textAppearanceHeadline6"
-       android:layout_marginTop="@dimen/common_pading_max"
-       android:layout_marginStart="@dimen/common_pading_default"
-       app:layout_constraintTop_toBottomOf="@id/toolbar_top"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintBottom_toTopOf="@id/tvDescriptionTitle"/>
+       app:layout_constraintTop_toBottomOf="@id/toolbar_top">
 
-   <TextView
-       android:id="@+id/tvDescriptionTitle"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/description_title"
-       android:textColor="@color/gray_green"
-       android:textSize="16sp"
-       android:textAppearance="?attr/textAppearanceSubtitle1"
-       android:layout_marginTop="@dimen/common_pading_min"
-       android:layout_marginBottom="@dimen/common_pading_max"
-       android:layout_marginStart="@dimen/common_pading_default"
-       app:layout_constraintTop_toBottomOf="@id/tvTitle"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintBottom_toTopOf="@id/recyclerView"/>
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
 
+         <TextView
+             android:id="@+id/tvTitle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/tv_title"
+             android:textColor="@color/white"
+             android:textSize="24sp"
+             android:textAppearance="?attr/textAppearanceHeadline6"
+             android:layout_marginTop="@dimen/common_pading_max"
+             android:layout_marginStart="@dimen/common_pading_default"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintBottom_toTopOf="@id/tvDescriptionTitle"/>
 
-      <Button
-          android:id="@+id/btn_cat"
-          android:layout_width="100dp"
-          android:layout_height="150dp"
-          android:text="@string/btn_cats"
-          android:rotation="270"
-          android:textColor="@color/gray_green"
-          android:textSize="16sp"
-          app:icon="@drawable/ic_pets"
-          app:iconTint="@color/transparent"
-          app:iconSize="16dp"
-          app:iconPadding="4dp"
-          style="@style/Widget.MaterialComponents.Button.TextButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="@id/recyclerView"/>
-
-      <Button
-          android:id="@+id/btn_dog"
-          android:layout_width="100dp"
-          android:layout_height="150dp"
-          android:text="@string/btn_dogs"
-          android:rotation="270"
-          android:textSize="16sp"
-          android:textColor="@color/gray_green"
-          app:icon="@drawable/ic_pets"
-          app:iconTint="@color/transparent"
-          app:iconSize="16dp"
-          app:iconPadding="4dp"
-          style="@style/Widget.MaterialComponents.Button.TextButton"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toBottomOf="@id/btn_cat"/>
+         <TextView
+             android:id="@+id/tvDescriptionTitle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/description_title"
+             android:textColor="@color/gray_green"
+             android:textSize="16sp"
+             android:textAppearance="?attr/textAppearanceSubtitle1"
+             android:layout_marginTop="@dimen/common_pading_min"
+             android:layout_marginBottom="@dimen/common_pading_max"
+             android:layout_marginStart="@dimen/common_pading_default"
+             app:layout_constraintTop_toBottomOf="@id/tvTitle"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintBottom_toTopOf="@id/recyclerView"/>
 
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/recyclerView"
-       android:layout_width="wrap_content"
-       android:layout_height="0dp"
-       android:paddingBottom="@dimen/common_pading_min"
-       android:clipToPadding="false"
-       android:layout_marginHorizontal="@dimen/common_margin_min_card"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle"
-       app:layout_constraintBottom_toBottomOf="parent"
-       tools:listitem="@layout/item_cat"/>
+         <Button
+             android:id="@+id/btn_cat"
+             android:layout_width="100dp"
+             android:layout_height="150dp"
+             android:text="@string/btn_cats"
+             android:rotation="270"
+             android:textColor="@color/gray_green"
+             android:textSize="16sp"
+             app:icon="@drawable/ic_pets"
+             app:iconSize="16dp"
+             app:iconPadding="4dp"
+             style="@style/Widget.MaterialComponents.Button.TextButton"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="@id/recyclerView"/>
+
+         <Button
+             android:id="@+id/btn_dog"
+             android:layout_width="100dp"
+             android:layout_height="150dp"
+             android:text="@string/btn_dogs"
+             android:rotation="270"
+             android:textSize="16sp"
+             android:textColor="@color/gray_green"
+             app:icon="@drawable/ic_pets"
+             app:iconSize="16dp"
+             app:iconPadding="4dp"
+             style="@style/Widget.MaterialComponents.Button.TextButton"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/btn_cat"/>
+
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerView"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingBottom="@dimen/common_pading_min"
+             android:clipToPadding="false"
+             android:layout_marginHorizontal="@dimen/common_margin_min_card"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle"
+             app:layout_constraintBottom_toBottomOf="parent"
+             tools:listitem="@layout/item_cat"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
