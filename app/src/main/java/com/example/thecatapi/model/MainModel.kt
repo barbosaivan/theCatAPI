@@ -1,4 +1,4 @@
-package com.example.thecatapi.mainModule.model
+package com.example.thecatapi.model
 
 import android.net.Uri
 import android.util.Log

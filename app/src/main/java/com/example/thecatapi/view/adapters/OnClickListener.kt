@@ -1,4 +1,4 @@
-package com.example.thecatapi.mainModule.view.adapters
+package com.example.thecatapi.view.adapters
 
 import com.example.thecatapi.common.entities.Cats
 

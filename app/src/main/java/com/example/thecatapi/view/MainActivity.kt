@@ -1,4 +1,4 @@
-package com.example.thecatapi.mainModule.view
+package com.example.thecatapi.view
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -18,9 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thecatapi.R
 import com.example.thecatapi.common.entities.Cats
 import com.example.thecatapi.databinding.ActivityMainBinding
-import com.example.thecatapi.mainModule.view.adapters.CatAdapter
-import com.example.thecatapi.mainModule.view.adapters.OnClickListener
-import com.example.thecatapi.mainModule.viewModel.MainViewModel
+import com.example.thecatapi.view.adapters.CatAdapter
+import com.example.thecatapi.view.adapters.OnClickListener
+import com.example.thecatapi.viewModel.MainViewModel
 
 
 class MainActivity : AppCompatActivity(), OnClickListener {

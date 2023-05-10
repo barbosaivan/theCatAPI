@@ -1,10 +1,10 @@
-package com.example.thecatapi.mainModule.viewModel
+package com.example.thecatapi.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.thecatapi.common.entities.Cats
-import com.example.thecatapi.mainModule.model.MainModel
+import com.example.thecatapi.model.MainModel
 
 /* 
 * Project: TheCatAPI
