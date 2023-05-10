@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.thecatapi.R
 import com.example.thecatapi.common.entities.Cats
-import com.example.thecatapi.databinding.ItemCatBinding
+import com.example.thecatapi.databinding.ItemBreedBinding
 
 /* 
 * Project: TheCatAPI
@@ -18,13 +18,14 @@ import com.example.thecatapi.databinding.ItemCatBinding
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class CatAdapter (private var cats: MutableList<Cats>, private var listener: OnClickListener): RecyclerView.Adapter<CatAdapter.ViewHolder>(){
+class CatAdapter(private var cats: MutableList<Cats>, private var listener: OnClickListener) :
+    RecyclerView.Adapter<CatAdapter.ViewHolder>() {
 
-private lateinit var context: Context
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val view = LayoutInflater.from(context).inflate(R.layout.item_cat, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_breed, parent, false)
         return ViewHolder(view)
     }
 
@@ -32,10 +33,11 @@ private lateinit var context: Context
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cat = cats[position]
-        with(holder){
+        with(holder) {
             setListener(cat)
             binding.tvRaceName.text = cat.name
-            Glide.with(context).load("https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg")
+            Glide.with(context)
+                .load("https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(binding.imgcat)
@@ -47,10 +49,10 @@ private lateinit var context: Context
         this.notifyDataSetChanged()
     }
 
-    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val binding = ItemCatBinding.bind(view)
-        fun setListener(cat: Cats){
-            with(binding.root){
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val binding = ItemBreedBinding.bind(view)
+        fun setListener(cat: Cats) {
+            with(binding.root) {
                 setOnClickListener { listener.onClick(cat) }
             }
         }

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.thecatapi.common.entities.Cats
-import com.example.thecatapi.model.MainModel
+import com.example.thecatapi.model.CatModel
 
 /* 
 * Project: TheCatAPI
@@ -13,25 +13,25 @@ import com.example.thecatapi.model.MainModel
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class MainViewModel: ViewModel() {
+class CatViewModel : ViewModel() {
     private var catList: MutableList<Cats>
-    private var mainModel: MainModel
+    private var catModel: CatModel
 
     init {
         catList = mutableListOf()
-        mainModel = MainModel()
+        catModel = CatModel()
     }
 
     private val cats: MutableLiveData<MutableList<Cats>> by lazy {
         MutableLiveData<MutableList<Cats>>()
     }
 
-    fun getCats(): LiveData<MutableList<Cats>>{
+    fun getCats(): LiveData<MutableList<Cats>> {
         return cats.also { loadCats() }
     }
 
     private fun loadCats() {
-        mainModel.requestApi {
+        catModel.requestApi {
             cats.value = it
             catList = it
         }

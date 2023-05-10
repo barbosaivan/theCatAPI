@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="250dp"
     android:layout_height="250dp"
-    app:cardCornerRadius="@dimen/common_pading_default"
-    app:cardElevation="@dimen/common_pading_default"
-    android:layout_marginStart="@dimen/common_pading_default"
-    android:layout_marginTop="@dimen/common_pading_min">
+    app:cardCornerRadius="@dimen/common_padding_default"
+    app:cardElevation="@dimen/common_padding_default"
+    android:layout_marginStart="@dimen/common_padding_default"
+    android:layout_marginTop="@dimen/common_padding_min">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,9 +32,9 @@
             android:maxLines="1"
             android:textSize="16sp"
             android:textColor="@color/dark_teal"
-            android:padding="@dimen/common_pading_min"
-            android:layout_marginTop="@dimen/common_pading_default"
-            android:layout_marginStart="@dimen/common_pading_default"
+            android:padding="@dimen/common_padding_min"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
             android:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="@id/imgcat"
             app:layout_constraintStart_toStartOf="@+id/imgcat"

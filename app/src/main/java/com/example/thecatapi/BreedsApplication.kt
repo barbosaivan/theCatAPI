@@ -1,7 +1,8 @@
 package com.example.thecatapi
 
 import android.app.Application
-import com.example.thecatapi.common.data.ApiCats
+import com.example.thecatapi.common.data.ApiBreeds
+import com.example.thecatapi.common.entities.Cats
 
 /* 
 * Project: TheCatAPI
@@ -10,15 +11,16 @@ import com.example.thecatapi.common.data.ApiCats
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class CatApplication: Application() {
-    companion object{
-        lateinit var apiCats: ApiCats
+class BreedsApplication : Application() {
+    companion object {
+        lateinit var apiBreeds: ApiBreeds
+        var loadCats: MutableList<Cats>? = null
     }
 
     override fun onCreate() {
         super.onCreate()
         //Volley
-        apiCats = ApiCats.getInstance(this)
+        apiBreeds = ApiBreeds.getInstance(this)
     }
 
 }

@@ -13,13 +13,13 @@ import com.android.volley.toolbox.Volley
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class ApiCats  constructor(context: Context){
+class ApiBreeds  constructor(context: Context){
     companion object{
         @Volatile
-        private var INSTANCE: ApiCats? = null
+        private var INSTANCE: ApiBreeds? = null
 
         fun getInstance(context: Context) = INSTANCE ?: synchronized(this){
-            INSTANCE ?: ApiCats(context).also { INSTANCE = it }
+            INSTANCE ?: ApiBreeds(context).also { INSTANCE = it }
         }
     }
 
