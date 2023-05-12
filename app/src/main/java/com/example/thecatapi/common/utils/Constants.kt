@@ -7,8 +7,9 @@ package com.example.thecatapi.common.utils
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-object Constans {
-    const val BASE_URL = "https://api.thecatapi.com/"
+object Constants {
+    const val BASE_URL_CAT = "https://api.thecatapi.com/"
+    const val BASE_URL_DOG = "https://api.thedogapi.com/"
     const val API_PATH_CATS = "v1/breeds"
     const val API_PATH_KEY = "x-api-key"
     const val API_KEY = "bda53789-d59e-46cd-9bc4-2936630fde39s"

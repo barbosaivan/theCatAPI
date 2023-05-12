@@ -9,6 +9,6 @@ import com.example.thecatapi.common.entities.Cats
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-interface OnClickListener {
+interface OnClickListenerCat {
     fun onClick(cat: Cats)
 }

@@ -15,11 +15,11 @@ import com.example.thecatapi.R
 import com.example.thecatapi.common.entities.Cats
 import com.example.thecatapi.databinding.FragmentCatBinding
 import com.example.thecatapi.view.adapters.CatAdapter
-import com.example.thecatapi.view.adapters.OnClickListener
+import com.example.thecatapi.view.adapters.OnClickListenerCat
 import com.example.thecatapi.viewModel.CatViewModel
 
 
-class CatFragment : Fragment(), OnClickListener {
+class CatFragment : Fragment(), OnClickListenerCat {
 
     private var _binding: FragmentCatBinding? = null
     private val binding get() = _binding!!

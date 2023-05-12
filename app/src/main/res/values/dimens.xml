@@ -6,4 +6,5 @@
     <dimen name="common_padding_max">32dp</dimen>
     <dimen name="common_btc_width">300dp</dimen>
     <dimen name="common_btc_height">500dp</dimen>
+    <dimen name="margin_botton">50dp</dimen>
 </resources>

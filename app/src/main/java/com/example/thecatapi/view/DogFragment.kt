@@ -1,60 +1,63 @@
 package com.example.thecatapi.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.thecatapi.R
+import com.example.thecatapi.common.entities.Dogs
+import com.example.thecatapi.databinding.FragmentDogBinding
+import com.example.thecatapi.view.adapters.DogAdapter
+import com.example.thecatapi.view.adapters.OnClickListenerDog
+import com.example.thecatapi.viewModel.DogViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class DogFragment : Fragment(), OnClickListenerDog {
+    private var _binding: FragmentDogBinding? = null
+    private val binding get() = _binding!!
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DogFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DogFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var dogAdapter: DogAdapter
+    private lateinit var dogViewModel: DogViewModel
+    private lateinit var gridLayout: GridLayoutManager
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentDogBinding.inflate(inflater, container, false)
+
+        setUpRecycler()
+        sepUpViewModel()
+
+        return binding.root
+    }
+
+    private fun sepUpViewModel() {
+        dogViewModel = ViewModelProvider(this)[DogViewModel::class.java]
+        dogViewModel.getDogs().observe(viewLifecycleOwner) {
+            dogAdapter.setDogs(it)
+        }
+
+    }
+
+    private fun setUpRecycler() {
+        dogAdapter = DogAdapter(mutableListOf(), this)
+        gridLayout =
+            GridLayoutManager(requireContext(), resources.getInteger(R.integer.main_columns))
+        binding.recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = gridLayout
+            adapter = this@DogFragment.dogAdapter
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dog, container, false)
+    override fun onClick(dogs: Dogs) {
+        TODO("Not yet implemented")
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DogFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DogFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

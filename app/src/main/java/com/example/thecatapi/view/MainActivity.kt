@@ -25,18 +25,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpButtons() {
         binding.btnCat.setTextColor(getColor(R.color.white))
-        binding.btnCat.setOnClickListener { _ ->
+        binding.btnCat.setOnClickListener {
+            buttonCAt()
             with(binding) {
-                buttonCAt()
                 btnCat.setTextColor(getColor(R.color.white))
                 setColorFilter(btnCat.compoundDrawables, getColor(R.color.dark_orange))
                 btnDog.setTextColor(getColor(R.color.gray_green))
                 setColorFilter(btnDog.compoundDrawables, null)
             }
         }
-        binding.btnDog.setOnClickListener { _ ->
+        binding.btnDog.setOnClickListener {
+            buttonDog()
             with(binding) {
-                buttonDog()
                 btnDog.setTextColor(getColor(R.color.white))
                 setColorFilter(btnDog.compoundDrawables, getColor(R.color.dark_orange))
                 btnCat.setTextColor(getColor(R.color.gray_green))

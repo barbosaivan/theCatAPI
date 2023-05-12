@@ -3,6 +3,7 @@ package com.example.thecatapi
 import android.app.Application
 import com.example.thecatapi.common.data.ApiBreeds
 import com.example.thecatapi.common.entities.Cats
+import com.example.thecatapi.common.entities.Dogs
 
 /* 
 * Project: TheCatAPI
@@ -15,6 +16,7 @@ class BreedsApplication : Application() {
     companion object {
         lateinit var apiBreeds: ApiBreeds
         var loadCats: MutableList<Cats>? = null
+        var loadDogs: MutableList<Dogs>? = null
     }
 
     override fun onCreate() {
