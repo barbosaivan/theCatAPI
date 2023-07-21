@@ -11,6 +11,7 @@
     <color name="dark_teal">#1f4a48</color>
     <color name="dark_orange">#f77814</color>
     <color name="gray_green">#8ba2a3</color>
+    <color name="white_transparent">#A6FFFFFF</color>
     <color name="transparent">#00000000</color>
 
 </resources>
