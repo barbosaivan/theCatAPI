@@ -45,7 +45,7 @@ class CatAdapter(private var cats: MutableList<Cats>, private var listener: OnCl
     }
 
     fun setCats(cats: MutableList<Cats>) {
-        this.cats = cats
+        this.cats.addAll(cats)
         this.notifyDataSetChanged()
     }
 

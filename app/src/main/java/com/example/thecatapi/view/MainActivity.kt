@@ -69,6 +69,8 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.breeds_fragment, fragment)
+        binding.tvTitle.text = getString(R.string.tv_title)
+        binding.tvDescriptionTitle.text = getString(R.string.description_title)
         fragmentTransaction.commit()
     }
 
@@ -77,6 +79,8 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.breeds_fragment, fragment)
+        binding.tvTitle.text = getString(R.string.tv_title_dogs)
+        binding.tvDescriptionTitle.text = getString(R.string.description_title_dogs)
         fragmentTransaction.commit()
     }
 }

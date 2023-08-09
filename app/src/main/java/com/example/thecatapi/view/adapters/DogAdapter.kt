@@ -41,9 +41,8 @@ class DogAdapter(private var dogs: MutableList<Dogs>, private var listener: OnCl
     }
 
     override fun getItemCount(): Int = dogs.size
-
-    fun setDogs(dogs: MutableList<Dogs>) {
-        this.dogs = dogs
+    fun addDogs(dogs: MutableList<Dogs>) {
+        this.dogs.addAll(dogs)
         this.notifyDataSetChanged()
     }
 

@@ -3,9 +3,7 @@ package com.example.thecatapi.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.thecatapi.common.entities.Cats
 import com.example.thecatapi.common.entities.Dogs
-import com.example.thecatapi.model.CatModel
 import com.example.thecatapi.model.DogModel
 
 /* 
@@ -15,7 +13,7 @@ import com.example.thecatapi.model.DogModel
 * Linkedin: https://www.linkedin.com/in/ivanbarbosaortega/
 */
 
-class DogViewModel: ViewModel() {
+class DogViewModel : ViewModel() {
     private var dogList: MutableList<Dogs>
     private var dogModel: DogModel
 
@@ -28,12 +26,12 @@ class DogViewModel: ViewModel() {
         MutableLiveData<MutableList<Dogs>>()
     }
 
-    fun getDogs(): LiveData<MutableList<Dogs>> {
-        return dogs.also { loadDogs() }
+    fun getDogs(page: String): LiveData<MutableList<Dogs>> {
+        return dogs.also { loadDogs(page) }
     }
 
-    private fun loadDogs() {
-        dogModel.requestApi {
+    fun loadDogs(page: String) {
+        dogModel.requestApi(page) {
             dogs.value = it
             dogList = it
         }

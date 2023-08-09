@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.thecatapi.R
 import com.example.thecatapi.common.entities.Cats
 import com.example.thecatapi.databinding.FragmentCatBinding
@@ -24,6 +26,9 @@ class CatFragment : Fragment(), OnClickListenerCat {
     private var _binding: FragmentCatBinding? = null
     private val binding get() = _binding!!
 
+    private var loading = true
+    private var page = 0
+
     private lateinit var catAdapter: CatAdapter
     private lateinit var catViewModel: CatViewModel
     private lateinit var gridLayout: GridLayoutManager
@@ -35,14 +40,15 @@ class CatFragment : Fragment(), OnClickListenerCat {
         _binding = FragmentCatBinding.inflate(inflater, container, false)
 
         setUpRecycler()
-        sepUpViewModel()
+        setUpViewModel()
+        setUpRecyclerViewScrollListener()
 
         return binding.root
     }
 
-    private fun sepUpViewModel() {
+    private fun setUpViewModel() {
         catViewModel = ViewModelProvider(this)[CatViewModel::class.java]
-        catViewModel.getCats().observe(viewLifecycleOwner) {
+        catViewModel.getCats(page.toString()).observe(viewLifecycleOwner) {
             catAdapter.setCats(it)
         }
 
@@ -57,6 +63,28 @@ class CatFragment : Fragment(), OnClickListenerCat {
             layoutManager = gridLayout
             adapter = this@CatFragment.catAdapter
         }
+    }
+
+    private fun setUpRecyclerViewScrollListener() {
+        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0) {
+                    with(binding.recyclerView) {
+                        val visibleItem = (layoutManager as? LinearLayoutManager)?.childCount!!
+                        val totalItemCount = (layoutManager as? LinearLayoutManager)?.itemCount!!
+                        val pastVisibleItem =
+                            (layoutManager as? LinearLayoutManager)?.findFirstVisibleItemPosition()!!
+                        if (loading && visibleItem + pastVisibleItem >= totalItemCount) {
+                            loading = false
+                            page++
+                            catViewModel.loadCats(page.toString())
+                            loading = true
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun goToWebSite(url: String) {

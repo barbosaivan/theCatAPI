@@ -7,7 +7,6 @@
     android:background="@drawable/background_two_colors"
     tools:context=".view.MainActivity">
 
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_top"
         style="@style/Platform.MaterialComponents.Light"
@@ -23,89 +22,81 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_top">
+        android:layout_marginStart="@dimen/common_padding_default"
+        android:layout_marginTop="@dimen/common_padding_min"
+        android:text="@string/tv_title"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_top" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvDescriptionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_padding_default"
+        android:layout_marginTop="@dimen/common_padding_min"
+        android:text="@string/description_title"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="@color/gray_green"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/common_padding_default"
-                android:layout_marginTop="@dimen/common_padding_max"
-                android:text="@string/tv_title"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvDescriptionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/common_padding_default"
-                android:layout_marginTop="@dimen/common_padding_min"
-                android:layout_marginBottom="@dimen/common_padding_max"
-                android:text="@string/description_title"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/gray_green"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <Button
+            android:id="@+id/btn_cat"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:rotation="270"
+            android:text="@string/btn_cats"
+            android:textColor="@color/gray_green"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_pets"
+            app:iconPadding="4dp"
+            app:iconSize="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_dog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btn_dog"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:rotation="270"
+            android:text="@string/btn_dogs"
+            android:textColor="@color/gray_green"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_pets"
+            app:iconPadding="4dp"
+            app:iconSize="16dp" />
 
-            <Button
-                android:id="@+id/btn_cat"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:rotation="270"
-                android:text="@string/btn_cats"
-                android:textColor="@color/gray_green"
-                android:textSize="16sp"
-                app:icon="@drawable/ic_pets"
-                app:iconPadding="4dp"
-                app:iconSize="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/breeds_fragment" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <Button
-                android:id="@+id/btn_dog"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:rotation="270"
-                android:text="@string/btn_dogs"
-                android:textColor="@color/gray_green"
-                android:textSize="16sp"
-                app:icon="@drawable/ic_pets"
-                app:iconPadding="4dp"
-                app:iconSize="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_cat" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/breeds_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_top"
+        app:navGraph="@navigation/breeds_navigation" />
 
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/breeds_fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="@dimen/margin_botton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle"
-                app:navGraph="@navigation/breeds_navigation" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

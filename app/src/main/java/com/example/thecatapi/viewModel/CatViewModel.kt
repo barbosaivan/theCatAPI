@@ -26,12 +26,12 @@ class CatViewModel : ViewModel() {
         MutableLiveData<MutableList<Cats>>()
     }
 
-    fun getCats(): LiveData<MutableList<Cats>> {
-        return cats.also { loadCats() }
+    fun getCats(page: String): LiveData<MutableList<Cats>> {
+        return cats.also { loadCats(page) }
     }
 
-    private fun loadCats() {
-        catModel.requestApi {
+    fun loadCats(page: String) {
+        catModel.requestApi(page) {
             cats.value = it
             catList = it
         }
